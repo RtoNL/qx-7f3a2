@@ -6,7 +6,7 @@
   <meta name="description" content="Case study: helping 430K+ TikTok Shop creators find the right campaign in every region.">
   <title>TikTok Shop creator campaigns — Yuqing Xu</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Ctext x='32' y='42' font-family='Helvetica' font-size='26' font-weight='bold' fill='white' text-anchor='middle'%3EYX%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -26,13 +26,15 @@
       <a class="cs-back" href="index.html#work">← All work</a>
       <p class="kicker">CASE 01 · TIKTOK SHOP · CREATOR PRODUCTS</p>
       <h1 class="display">The right campaign, for the right creator,<br><span>in every region.</span></h1>
-      <p class="lede">Redesigning how 430K+ creators across 10+ regions discover campaigns — from one banner for everyone to targeted, localized, measurable entry points — and prototyping every state in code before it shipped.</p>
+      <p class="lede">Improving how creators discover campaigns on TikTok Shop — from one banner for everyone to targeted, localized, measurable entry points — and validating every edge state in code before it shipped.</p>
       <dl class="facts" style="margin-top:36px">
-        <div><dt>Role</dt><dd>Software Engineer Intern — UX judgment, prototyping, implementation</dd></div>
-        <div><dt>Team</dt><dd>Product manager, product designers, backend engineers</dd></div>
+        <div><dt>Role</dt><dd>Software Engineer Intern</dd></div>
+        <div><dt>Team</dt><dd>Global E-Commerce · TikTok Shop</dd></div>
         <div><dt>Timeline</dt><dd>Sep 2025 – Jan 2026 · incl. BFCM launch</dd></div>
-        <div><dt>Note</dt><dd>Public-safe reconstruction — no internal UI or data</dd></div>
+        <div><dt>Product context</dt><dd>430K+ creators, 10+ regions · public-safe reconstruction, no internal UI or data</dd></div>
       </dl>
+      <dl class="tldr"><div><dt>PROBLEM</dt><dd>One banner showed every creator the same campaign, in every region.</dd></div><div><dt>DECISION</dt><dd>Target by segment and region, show visible pagination, and define a fallback for every field.</dd></div><div><dt>TRADE-OFF</dt><dd>Later slides get less exposure; a missing translation falls back to English.</dd></div><div><dt>RESULT</dt><dd>~25% higher banner click-through. Across related multi-region releases, ~40% fewer integration defects.</dd></div></dl>
+      <a class="pill-link try-proto" href="#prototype">Try the interactive prototype <i>↓</i></a>
       <figure class="cs-cover"><img src="assets/work/tiktok-cover.jpg" alt="Three reconstructed creator home screens showing different campaigns for a new creator, a fashion seller, and a live host"></figure>
     </section>
 
@@ -53,13 +55,16 @@
           <p class="kicker"><span>1</span>PROBLEM</p>
           <h2>One banner was trying to speak to every creator — and ended up speaking to none.</h2>
           <p>Campaigns are how TikTok Shop creators find new earning opportunities. The creator home had a single promotional slot, and it showed the same message to a brand-new creator in Indonesia and an established live host in the US.</p>
-          <p>Behind the scenes, two more problems made every launch slower: Figma and code described colors in different languages, so designers and engineers cross-checked values by hand during the BFCM rush; and every new region needed engineering work just to change stages, copy, and routing.</p>
+          <div class="bvsa">
+            <div><h5>BEFORE · ONE MESSAGE FOR EVERYONE</h5><div class="phones"><div class="mini"><b style="background:#9aa3ae">Shop campaign</b><span></span><span></span><span></span><small>New · ID</small></div><div class="mini"><b style="background:#9aa3ae">Shop campaign</b><span></span><span></span><span></span><small>Fashion · MX</small></div><div class="mini"><b style="background:#9aa3ae">Shop campaign</b><span></span><span></span><span></span><small>Live · US</small></div></div><p>Same banner, whoever and wherever you are.</p></div>
+            <div><h5>AFTER · THE RIGHT CAMPAIGN FIRST</h5><div class="phones"><div class="mini"><b style="background:#3b6cf6">Start your first campaign<em class="dots"><i class="on"></i><i></i><i></i></em></b><span></span><span></span><span></span><small>New · ID</small></div><div class="mini"><b style="background:#c0466e">Fall fashion week picks<em class="dots"><i class="on"></i><i></i><i></i></em></b><span></span><span></span><span></span><small>Fashion · MX</small></div><div class="mini"><b style="background:#e46b2e">Go live: holiday deals<em class="dots"><i class="on"></i><i></i><i></i></em></b><span></span><span></span><span></span><small>Live · US</small></div></div><p>Targeted by segment and region, localized, with visible pagination.</p></div>
+          </div>
           <p class="pull">How might we help each creator notice the one campaign that fits them — without rebuilding the page for every market?</p>
         </section>
 
         <section id="insight" class="cs-sec reveal">
           <p class="kicker"><span>2</span>UX JUDGMENT</p>
-          <h2>Three calls I made before touching the layout.</h2>
+          <h2>Three implementation-level UX decisions I helped resolve.</h2>
           <div class="insights">
             <div><b>01 · RELEVANCE</b><h4>Relevance beats volume.</h4><p>More banners would not help. Each creator should see campaigns targeted to their segment and region first.</p></div>
             <div><b>02 · AFFORDANCE</b><h4>If there is more, show it.</h4><p>A rotating slot only works when people can tell there is more than one item. Pagination had to be visible and tappable.</p></div>
@@ -89,7 +94,7 @@
               <ul><li class="pro">Everything visible at once</li><li class="con">Pushes creators’ own data far down</li><li class="con">Long translations multiply the height</li></ul>
             </div>
           </div>
-          <p style="margin-top:26px">I recommended <b>B</b>: it keeps the page height fixed, lets targeting do the prioritizing, and turns the slot into something we can measure and iterate on.</p>
+          <p style="margin-top:26px">I worked with product and design to align on <b>B</b>: it keeps the page height fixed, lets targeting do the prioritizing, and turns the slot into something we can measure and iterate on.</p>
         </section>
 
         <section id="tradeoff" class="cs-sec reveal">
@@ -104,8 +109,8 @@
 
         <section id="prototype" class="cs-sec reveal">
           <p class="kicker"><span>5</span>PROTOTYPE &amp; TEST</p>
-          <h2>I built the states in code, so the team reviewed reality instead of a perfect mock.</h2>
-          <p>Static frames only show the happy path. I used a coded prototype to walk PM and design through the states that usually surface after launch: different creator segments, long translations, and missing copy. Try it — this is a public-safe reconstruction of the same logic.</p>
+          <h2>Edge states, tested in code instead of a perfect mock.</h2>
+          <p>Static frames only show the happy path. During implementation I checked the states that usually surface after launch — different creator segments, long translations, and missing copy — and aligned the fixes with product and design. <i>For this portfolio retrospective, I reconstructed the states as an interactive prototype.</i> Try it.</p>
           <div class="proto-wrap" id="tt-proto">
             <div class="phone" aria-label="Interactive prototype of a creator home screen">
               <div class="phone-screen">
@@ -140,15 +145,15 @@
             </div>
           </div>
           <div class="ba" style="margin-top:22px">
-            <div><h4>WHAT THE PROTOTYPE CAUGHT</h4><p style="font-size:14.5px;margin:0">Without a fallback, a missing translation showed a raw content key to creators. Long Thai and Vietnamese titles wrapped to three lines and covered the CTA.</p></div>
-            <div><h4>WHAT WE CHANGED</h4><p style="font-size:14.5px;margin:0">Defined a fallback order for every field, capped titles at two lines with a full-text detail page, and kept CTAs to one line with truncation rules agreed with design.</p></div>
+            <div><h4>EDGE STATES WE HAD TO HANDLE</h4><p style="font-size:14.5px;margin:0">Without a fallback, a missing translation showed a raw content key to creators. Long Thai and Vietnamese titles wrapped to three lines and covered the CTA.</p></div>
+            <div><h4>HOW WE HANDLED THEM</h4><p style="font-size:14.5px;margin:0">Defined a fallback order for every field, capped titles at two lines with a full-text detail page, and kept CTAs to one line with truncation rules agreed with design. We didn’t shrink the type: smaller text would hurt readability and break the hierarchy across markets, while a fixed two-line limit kept the layout scannable within the established type scale.</p></div>
           </div>
         </section>
 
         <section id="system" class="cs-sec reveal">
           <p class="kicker"><span>6</span>SCALING IT</p>
           <h2>Making consistency the default, not a heroic effort.</h2>
-          <p><b>Map tokens by meaning, not by hex.</b> During BFCM, mismatched color tokens meant every review turned into hex-matching. I reconciled the two systems into a shared mapping keyed by semantic role, so a palette refresh or regional theme changes one value instead of breaking every screen.</p>
+          <p><b>Map tokens by meaning, not by hex.</b> During BFCM, designers and engineers matched colors by hand. A shared mapping by semantic role made every review a one-line check.</p>
           <div class="map-viz">
             <div>
               <h4>Before · matched by hex</h4>
@@ -165,14 +170,16 @@
               <div class="map-row"><span><i style="background:#667085"></i>Text / Secondary</span><em>→</em><span>text.muted</span></div>
             </div>
           </div>
-          <p style="margin-top:28px"><b>Let configuration carry regional differences.</b> Lifecycle stages, content, routing, and creator segments moved into validated configuration with fallbacks and feature flags, so a new market became a configuration change rather than a new build.</p>
-          <p><b>Agree on the data before the pixels.</b> I ran field and naming reviews with product and backend so components received data in the shape the design assumed — the biggest source of cross-region bugs.</p>
           <div class="flowline">
             <div><small>01</small><b>Figma semantics</b><p>Designers name roles, not values</p></div><i>→</i>
             <div><small>02</small><b>Shared mapping</b><p>One documented source of truth</p></div><i>→</i>
             <div><small>03</small><b>Validated config</b><p>Regions, segments, fallbacks</p></div><i>→</i>
             <div><small>04</small><b>State review</b><p>Locales, empty, long text</p></div>
           </div>
+          <details class="more"><summary>How it scaled across regions</summary><div>
+          <p><b>Let configuration carry regional differences.</b> Lifecycle stages, content, routing, and creator segments moved into validated configuration with fallbacks and feature flags, so a new market became a configuration change rather than a new build.</p>
+          <p><b>Agree on the data before the pixels.</b> I ran field and naming reviews with product and backend so components received data in the shape the design assumed — the biggest source of cross-region bugs.</p>
+          </div></details>
         </section>
 
         <section id="result" class="cs-sec reveal">
@@ -180,8 +187,8 @@
           <h2>A slot that earns its place — and a launch process that scales.</h2>
           <div class="results">
             <div><strong>~25%</strong><span>higher banner click-through rate</span></div>
-            <div><strong>~40%</strong><span>fewer frontend integration defects across multi-region releases</span></div>
-            <div><strong>430K+</strong><span>creators across 10+ regions reached through configuration</span></div>
+            <div><strong>~40%</strong><span>fewer frontend integration defects across related multi-region releases — not the carousel alone</span></div>
+            <div class="ctx"><strong>430K+</strong><span><b>Product context:</b> creators across 10+ regions on the platform</span></div>
           </div>
           <p style="margin-top:26px">The token mapping became the shared reference for designers and engineers during the BFCM launch, and new-market experiences shipped through configuration.</p>
         </section>
@@ -198,6 +205,6 @@
   </main>
 
   <footer class="site-footer shell"><span>Yuqing Xu · Seattle, WA</span><a href="mailto:xyqapply@gmail.com">Get in touch ↗</a></footer>
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
